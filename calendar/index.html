@@ -55,6 +55,8 @@ h1,h2,h3,.big{font-weight:900;letter-spacing:.01em;text-transform:uppercase}
 .phone .scr .ttl em{color:var(--gold);font-style:normal}
 .phone .scr .mk{align-self:center;opacity:.95;height:46px;margin-top:10px}
 .phone .scr .ft{font-size:9px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;font-weight:600}
+.phone video.vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;cursor:pointer;background:#000}
+.sndhint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:9px;letter-spacing:.25em;color:var(--cream);background:rgba(10,10,10,.6);border:1px solid rgba(196,165,98,.4);padding:6px 12px;border-radius:999px;text-transform:uppercase;font-weight:600;pointer-events:none;white-space:nowrap;transition:opacity .4s;z-index:2}
 /* glance */
 .glance h2{font-size:clamp(36px,4.6vw,64px);color:var(--white);margin-bottom:12px}
 .glance .intro{color:var(--sand);max-width:760px;line-height:1.7;font-size:14px;font-weight:500;margin-bottom:30px}
@@ -125,7 +127,7 @@ h1,h2,h3,.big{font-weight:900;letter-spacing:.01em;text-transform:uppercase}
     </div>
     <div class="phones">
       <div class="phone" style="left:10px;top:30px;transform:rotate(-7deg);z-index:1"><div class="scr"><div class="ttl">THE EVERY <em>HAT</em> TRAP</div><img class="mk" src="mark.png"><div class="ft">Tue · Contractor</div></div></div>
-      <div class="phone" style="left:150px;top:0;z-index:3"><div class="scr"><div class="ttl">WHAT THE <em>LOGO</em> MEANS</div><img class="mk" src="mark.png"><div class="ft">Mon · Brand Film</div></div></div>
+      <div class="phone" style="left:150px;top:0;z-index:3"><video class="vid" src="media/mon.mp4" poster="media/mon.jpg" muted loop playsinline autoplay></video></div>
       <div class="phone" style="left:296px;top:36px;transform:rotate(7deg);z-index:2"><div class="scr"><div class="ttl">I <em>VET</em> SO YOU DON'T HAVE TO</div><img class="mk" src="mark.png"><div class="ft">Wed · Homeowner</div></div></div>
     </div>
   </div>
@@ -153,7 +155,7 @@ h1,h2,h3,.big{font-weight:900;letter-spacing:.01em;text-transform:uppercase}
 
 <!-- SLIDE 3 · MON -->
 <section class="slide post" id="s3">
-  <div class="mock"><div class="phone"><div class="scr"><div class="ttl" style="font-size:26px">WHAT THE <em>LOGO</em> MEANS</div><img class="mk" src="mark.png" style="height:64px"><div class="ft">2:00 · Full Motion</div></div></div>
+  <div class="mock"><div class="phone"><video class="vid" src="media/mon.mp4" poster="media/mon.jpg" muted loop playsinline autoplay></video><div class="sndhint">Tap for sound</div></div>
     <a class="btn" href="https://drive.google.com/file/d/1rFk13b1qstD5bTgFmICa1Xjc8VTcDdkp/view" target="_blank">Watch the film ↗</a></div>
   <div class="body">
     <div class="dayline"><h2>MONDAY <span>NOV 2</span></h2></div>
@@ -325,6 +327,10 @@ function go(d){deck.scrollTo({left:(cur()+d)*window.innerWidth,behavior:'smooth'
 function upd(){const c=cur();document.getElementById('count').textContent=String(c+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');[...dots.children].forEach((x,i)=>x.classList.toggle('on',i===c));}
 deck.addEventListener('scroll',()=>requestAnimationFrame(upd));
 window.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1);});
+// Reel playback: play when on screen, tap to toggle sound
+const vids=document.querySelectorAll('video.vid');
+const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{});}else{v.pause();if(!v.muted){v.muted=true;}}}),{threshold:.35});
+vids.forEach(v=>{io.observe(v);v.addEventListener('click',()=>{v.muted=!v.muted;if(v.paused)v.play();const h=v.parentElement.querySelector('.sndhint');if(h)h.style.opacity=0;});});
 </script>
 </body>
 </html>
