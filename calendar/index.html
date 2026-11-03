@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Absolute Built Content Calendar · Week 1 | PuroFlow Media</title>
+<meta name="description" content="Absolute Built × PuroFlow Media content calendar: every post, the caption, and the thinking behind it.">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:title" content="Absolute Built × PuroFlow Media | Content Calendar">
+<meta property="og:description" content="Every post, every week: the reel, the caption and the thinking behind it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A; --bg2:#141210; --card:#161310; --line:rgba(196,165,98,.22);
+  --gold:#C4A562; --sand:#D9C9B0; --cream:#F4EFE6; --white:#FFFFFF; --dim:#9a917f;
+  --ok:#7fc77f; --warn:#e3b341;
+}
+:root:not([data-theme="light"]){color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--cream);font-family:'Montserrat',sans-serif;overflow:hidden}
+.eyebrow{letter-spacing:.38em;text-transform:uppercase;color:var(--gold);font-weight:600;font-size:11px}
+h1,h2,h3,.big{font-weight:900;letter-spacing:.01em;text-transform:uppercase}
+#deck{height:100%;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+#deck::-webkit-scrollbar{display:none}
+.slide{min-width:100vw;height:100%;scroll-snap-align:start;display:flex;flex-direction:column;padding:64px 56px 96px;position:relative;background:radial-gradient(ellipse 110% 80% at 50% 30%, #16130E 0%, var(--bg) 60%)}
+.topbar{position:fixed;top:0;left:0;right:0;display:flex;gap:10px;align-items:center;padding:14px 24px;z-index:50;background:linear-gradient(180deg,rgba(10,10,10,.92),rgba(10,10,10,0));flex-wrap:wrap}
+.weektab{border:1px solid var(--line);border-radius:10px;padding:7px 14px;font-size:10px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;font-weight:600;white-space:nowrap}
+.weektab.active{background:#1d1708;border-color:var(--gold);color:var(--cream)}
+.weektab .st{display:block;font-size:8px;color:var(--gold);margin-top:2px}
+.brand{font-weight:900;letter-spacing:.24em;font-size:14px;color:var(--cream);margin-right:8px}
+.brand span{color:var(--gold)}
+.footer{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;gap:18px;padding:16px 28px;z-index:50;background:linear-gradient(0deg,rgba(10,10,10,.95),rgba(10,10,10,0));font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+.footer .tag{color:var(--cream);font-weight:600}
+.footer .tag b{color:var(--gold);font-weight:600}
+.pager{margin-left:auto;display:flex;align-items:center;gap:14px;color:var(--dim);letter-spacing:.2em}
+.dots{display:flex;gap:6px}
+.dot{width:34px;height:3px;background:#2a2620;border-radius:2px}
+.dot.on{background:var(--gold)}
+.navbtn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#141210;color:var(--cream);cursor:pointer;font-size:15px}
+.navbtn:hover{border-color:var(--gold)}
+/* hero */
+.hero{justify-content:center}
+.hero .inner{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;max-width:1240px;margin:0 auto}
+.hero h1{font-size:clamp(56px,8.5vw,120px);line-height:.95;color:var(--white)}
+.hero h1 .accent{color:var(--gold)}
+.hero p{color:var(--sand);font-size:15px;line-height:1.75;max-width:520px;margin-top:22px;font-weight:500}
+.markrow{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.markrow img{height:54px}
+.phones{position:relative;height:520px}
+.phone{position:absolute;width:232px;height:470px;border-radius:30px;background:#000;border:7px solid #1c1a17;box-shadow:0 30px 70px rgba(0,0,0,.6);overflow:hidden}
+.phone .scr{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:22px 16px;background:linear-gradient(160deg,#241c0e 0%,#0d0b08 55%,#070605 100%)}
+.phone .scr .ttl{font-weight:900;text-transform:uppercase;font-size:21px;line-height:1.15;color:var(--cream)}
+.phone .scr .ttl em{color:var(--gold);font-style:normal}
+.phone .scr .mk{align-self:center;opacity:.95;height:46px;margin-top:10px}
+.phone .scr .ft{font-size:9px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;font-weight:600}
+/* glance */
+.glance h2{font-size:clamp(36px,4.6vw,64px);color:var(--white);margin-bottom:12px}
+.glance .intro{color:var(--sand);max-width:760px;line-height:1.7;font-size:14px;font-weight:500;margin-bottom:30px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1280px}
+.pcard .thumb{aspect-ratio:9/16;border-radius:16px;border:1px solid var(--line);background:linear-gradient(165deg,#221a0d 0%,#0e0c09 60%,#080706 100%);display:flex;flex-direction:column;justify-content:space-between;padding:16px 13px;overflow:hidden}
+.pcard .thumb .t{font-weight:900;font-size:15px;line-height:1.2;text-transform:uppercase;color:var(--cream)}
+.pcard .thumb .mk2{height:34px;align-self:center;opacity:.9}
+.pcard .thumb .n{font-size:30px;font-weight:900;color:var(--gold);opacity:.55}
+.pcard .day{margin-top:12px;font-size:10px;letter-spacing:.22em;color:var(--gold);font-weight:600;text-transform:uppercase}
+.pcard h3{font-size:16px;margin-top:6px;color:var(--white);line-height:1.25}
+.pcard .cat{font-size:9px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-top:7px;font-weight:600}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:9px;letter-spacing:.14em;font-weight:700;text-transform:uppercase;margin-top:9px}
+.chip i{width:6px;height:6px;border-radius:50%;display:inline-block}
+.chip.ready{color:var(--ok)} .chip.ready i{background:var(--ok)}
+.chip.tonight{color:var(--warn)} .chip.tonight i{background:var(--warn)}
+/* post slides */
+.post{flex-direction:row;gap:46px;align-items:center;justify-content:center}
+.post .mock{flex:0 0 272px}
+.post .mock .phone{position:relative;width:272px;height:552px}
+.post .mock .btn, .btn{display:inline-block;margin-top:18px;border:1px solid var(--line);border-radius:999px;padding:13px 26px;color:var(--cream);text-decoration:none;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;background:#131009}
+.btn:hover{border-color:var(--gold)}
+.post .body{max-width:820px}
+.post .dayline{display:flex;align-items:baseline;gap:12px}
+.post .dayline h2{font-size:34px;color:var(--white)}
+.post .dayline h2 span{color:var(--gold)}
+.pills{display:flex;align-items:center;gap:10px;margin:12px 0 6px;flex-wrap:wrap}
+.pill{background:#1d1708;border:1px solid var(--gold);color:var(--cream);border-radius:999px;padding:5px 13px;font-size:9.5px;letter-spacing:.16em;font-weight:700;text-transform:uppercase}
+.meta{color:var(--dim);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.post h1{font-size:clamp(34px,4vw,58px);line-height:1.02;color:var(--white);margin:10px 0 18px}
+.sect{margin-top:14px}
+.sect .lab{font-size:10px;letter-spacing:.3em;color:var(--gold);font-weight:700;text-transform:uppercase}
+.sect .lab::before{content:"— "}
+.hook{font-size:19px;font-weight:800;color:var(--cream);margin-top:6px;line-height:1.35}
+.cols{display:grid;grid-template-columns:1.15fr .85fr;gap:28px}
+.cap{color:var(--sand);font-size:13px;line-height:1.75;margin-top:8px;white-space:pre-line;font-weight:500}
+.why{color:var(--sand);font-size:12.5px;line-height:1.7;margin-top:8px;font-weight:500}
+.tags{color:#8d8470;font-size:11px;line-height:1.7;margin-top:6px}
+.prod{background:#14110b;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-top:18px;font-size:11.5px;color:var(--sand);line-height:1.65}
+.prod b{color:var(--cream)}
+@media (max-width:980px){
+  .slide{padding:120px 16px 110px;overflow-y:auto}
+  .hero .inner{grid-template-columns:1fr}
+  .phones{display:none}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .post{flex-direction:column;align-items:flex-start}
+  .cols{grid-template-columns:1fr}
+  .post .mock{display:none}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">ABSOLUTE <span>×</span> PUROFLOW</div>
+  <div class="weektab active">NOV 2<span class="st">WEEK 1 · PLANNED</span></div>
+  <div class="weektab">NOV 9<span class="st">WEEK 2 · NEXT</span></div>
+</div>
+
+<div id="deck">
+
+<!-- SLIDE 1 · HERO -->
+<section class="slide hero" id="s1">
+  <div class="inner">
+    <div>
+      <div class="markrow"><img src="mark.png" alt="Absolute Built"><span class="eyebrow">Absolute Built Content Calendar</span></div>
+      <div class="eyebrow" style="margin-bottom:14px">Week 1 · Launch Week · The Why Before The What</div>
+      <h1>WEEK OF<br>NOV 2<br><span class="accent">TO NOV 6</span> 2026</h1>
+      <p>5 posts, one a day, Monday through Friday. The brand anthem opens the account era, then the week alternates contractor and homeowner pillars and closes on the app vision. Every post ends in a comment keyword so the DMs do the selling.</p>
+    </div>
+    <div class="phones">
+      <div class="phone" style="left:10px;top:30px;transform:rotate(-7deg);z-index:1"><div class="scr"><div class="ttl">THE EVERY <em>HAT</em> TRAP</div><img class="mk" src="mark.png"><div class="ft">Tue · Contractor</div></div></div>
+      <div class="phone" style="left:150px;top:0;z-index:3"><div class="scr"><div class="ttl">WHAT THE <em>LOGO</em> MEANS</div><img class="mk" src="mark.png"><div class="ft">Mon · Brand Film</div></div></div>
+      <div class="phone" style="left:296px;top:36px;transform:rotate(7deg);z-index:2"><div class="scr"><div class="ttl">I <em>VET</em> SO YOU DON'T HAVE TO</div><img class="mk" src="mark.png"><div class="ft">Wed · Homeowner</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2 · GLANCE -->
+<section class="slide glance" id="s2">
+  <div style="max-width:1280px;margin:30px auto 0">
+  <h2>WEEK 1 AT A GLANCE</h2>
+  <p class="intro">Launch week leads with the why. Monday's brand film gives every later post its meaning, Tuesday and Thursday speak to contractors on Kayden's personal page, Wednesday speaks to homeowners on the business page, and Friday plants the app flag. One keyword per post, every comment becomes a DM conversation.</p>
+  <div class="cards">
+    <div class="pcard"><div class="thumb"><div class="t">What The Logo Means</div><img class="mk2" src="mark.png"><div class="n">01</div></div>
+      <div class="day">Mon · Nov 2 · @absolutebuilt</div><h3>What The Absolute Logo Means</h3><div class="cat">Brand Film / Origin</div><div class="chip tonight"><i></i>Post Tonight</div></div>
+    <div class="pcard"><div class="thumb"><div class="t">The Every Hat Trap</div><img class="mk2" src="mark.png"><div class="n">02</div></div>
+      <div class="day">Tue · Nov 3 · @kaydencarlos</div><h3>The Every-Hat Trap</h3><div class="cat">Contractor / Pain Point</div><div class="chip ready"><i></i>Ready</div></div>
+    <div class="pcard"><div class="thumb"><div class="t">I Vet So You Don't Have To</div><img class="mk2" src="mark.png"><div class="n">03</div></div>
+      <div class="day">Wed · Nov 4 · @absolutebuilt</div><h3>I Vet So You Don't Gamble</h3><div class="cat">Homeowner / Trust</div><div class="chip ready"><i></i>Ready</div></div>
+    <div class="pcard"><div class="thumb"><div class="t">You Build, I Handle The Rest</div><img class="mk2" src="mark.png"><div class="n">04</div></div>
+      <div class="day">Thu · Nov 5 · @kaydencarlos</div><h3>You Build, I Handle The Rest</h3><div class="cat">Contractor / Offer</div><div class="chip ready"><i></i>Ready</div></div>
+    <div class="pcard"><div class="thumb"><div class="t">The One-Stop-Shop App</div><img class="mk2" src="mark.png"><div class="n">05</div></div>
+      <div class="day">Fri · Nov 6 · @absolutebuilt</div><h3>The One-Stop Shop</h3><div class="cat">App / Vision</div><div class="chip ready"><i></i>Ready</div></div>
+  </div>
+  </div>
+</section>
+
+<!-- SLIDE 3 · MON -->
+<section class="slide post" id="s3">
+  <div class="mock"><div class="phone"><div class="scr"><div class="ttl" style="font-size:26px">WHAT THE <em>LOGO</em> MEANS</div><img class="mk" src="mark.png" style="height:64px"><div class="ft">2:00 · Full Motion</div></div></div>
+    <a class="btn" href="https://drive.google.com/file/d/1rFk13b1qstD5bTgFmICa1Xjc8VTcDdkp/view" target="_blank">Watch the film ↗</a></div>
+  <div class="body">
+    <div class="dayline"><h2>MONDAY <span>NOV 2</span></h2></div>
+    <div class="pills"><span class="pill">Brand Film / Origin</span><span class="chip tonight"><i></i>Post Tonight 8 PM MT</span><span class="meta">Reel · 2:00 · @absolutebuilt + share to @kaydencarlos stories</span></div>
+    <h1>WHAT THE ABSOLUTE LOGO MEANS</h1>
+    <div class="sect"><span class="lab">Hook</span><div class="hook">"I get asked all the time why I do what I do." Three golden sevens. One triangle. The whole mission in two minutes.</div></div>
+    <div class="cols">
+      <div class="sect"><span class="lab">Caption</span>
+        <div class="cap">Most people see a logo. This is a covenant.
+
+Three sevens, intertwined into one triangle. In Hebrew, seven means complete. The synonym for complete is absolute.
+
+Our mission sits in those three sides: find the vision, map the targets, build the ecosystem. For the contractors we partner with, the homeowners who trust us, and every person on this team.
+
+It's not our plan. It's God's. 🔺
+
+Comment BUILD and I'll show you where you fit in it.</div></div>
+      <div>
+        <div class="sect"><span class="lab">Thought behind it</span><div class="why">Launch week starts with belief, not offers. Every post after this one borrows meaning from this film: the pillars, the triangle, the standard. It's also the only piece that works for both audiences on day one, so it goes on the business page and Kayden pushes it personally.</div></div>
+        <div class="sect"><span class="lab">CTA + Hashtags</span><div class="why">Comment BUILD → ManyChat DM: contractor or homeowner path.</div><div class="tags">#AbsoluteBuilt #UtahContractor #HomeRemodel #FaithAndBusiness #ThreeSevens #DesignSupplyBuild</div></div>
+      </div>
+    </div>
+    <div class="prod"><b>Production:</b> final file is v3 FULL MOTION in the Content Hub, no re-edit needed. Pin the reel to the profile top after posting. <b>Cross-post:</b> Kayden shares to personal stories with "this is why" text overlay. First comment from @kaydencarlos: "It starts here. 🔨"</div>
+  </div>
+</section>
+
+<!-- SLIDE 4 · TUE -->
+<section class="slide post" id="s4">
+  <div class="mock"><div class="phone"><div class="scr"><div class="ttl" style="font-size:26px">THE EVERY <em>HAT</em> TRAP</div><img class="mk" src="mark.png" style="height:64px"><div class="ft">Script 01 · Contractor</div></div></div>
+    <a class="btn" href="https://drive.google.com/file/d/1pLFqoGXE_LKTzfjkP63lR5u664Bc5MQP/view" target="_blank">Watch the reel ↗</a></div>
+  <div class="body">
+    <div class="dayline"><h2>TUESDAY <span>NOV 3</span></h2></div>
+    <div class="pills"><span class="pill">Contractor / Pain Point</span><span class="chip ready"><i></i>Ready · Yash final</span><span class="meta">Reel · 7:00 AM MT · @kaydencarlos</span></div>
+    <h1>THE EVERY-HAT TRAP</h1>
+    <div class="sect"><span class="lab">Hook</span><div class="hook">The reason most contractors stay stuck at the same income every year has nothing to do with their skill.</div></div>
+    <div class="cols">
+      <div class="sect"><span class="lab">Caption</span>
+        <div class="cap">You're the salesman. The marketer. The estimator. The project manager. And the guy swinging the hammer.
+
+You can't scale a business when you ARE the whole business.
+
+I take the selling and the customer side off your plate so you can do the thing you're actually great at: building.
+
+Comment HATS and let's talk about taking a few off. 🧢</div></div>
+      <div>
+        <div class="sect"><span class="lab">Thought behind it</span><div class="why">Strongest pain hook in the bank, so it opens the contractor pillar. Early morning slot catches contractors before they're on site. Posted on Kayden's personal page because contractors buy the man before the platform.</div></div>
+        <div class="sect"><span class="lab">CTA + Hashtags</span><div class="why">Comment HATS → ManyChat DM: partner conversation booking link.</div><div class="tags">#ContractorLife #ConstructionBusiness #UtahContractor #GeneralContractor #TradesLife #ScaleYourBusiness</div></div>
+      </div>
+    </div>
+    <div class="prod"><b>Production:</b> Yash's Oct 26 final (with outro) is the posting file. <b>Engagement:</b> Kayden replies to every comment in the first hour. @absolutebuilt comments the triangle 🔺 to tie back to Monday's film.</div>
+  </div>
+</section>
+
+<!-- SLIDE 5 · WED -->
+<section class="slide post" id="s5">
+  <div class="mock"><div class="phone"><div class="scr"><div class="ttl" style="font-size:26px">I <em>VET</em> SO YOU DON'T HAVE TO</div><img class="mk" src="mark.png" style="height:64px"><div class="ft">Script 12 · Homeowner</div></div></div>
+    <a class="btn" href="https://drive.google.com/file/d/1_Yc9lFeO4xp0gK5gbDEOSYvJRo6CpWFw/view" target="_blank">Watch the reel ↗</a></div>
+  <div class="body">
+    <div class="dayline"><h2>WEDNESDAY <span>NOV 4</span></h2></div>
+    <div class="pills"><span class="pill">Homeowner / Trust</span><span class="chip ready"><i></i>Ready · Yash final</span><span class="meta">Reel · 12:00 PM MT · @absolutebuilt</span></div>
+    <h1>I VET SO YOU DON'T GAMBLE</h1>
+    <div class="sect"><span class="lab">Hook</span><div class="hook">Hiring a contractor shouldn't feel like a gamble with your biggest investment.</div></div>
+    <div class="cols">
+      <div class="sect"><span class="lab">Caption</span>
+        <div class="cap">For most people, it is. You're trusting a stranger with the biggest thing you own and hoping it works out.
+
+We take that gamble off the table. Every contractor is vetted, matched to your project, and we stay involved until it's done right.
+
+One name, start to finish.
+
+Comment VET and we'll tell you exactly how it works. 🏠</div></div>
+      <div>
+        <div class="sect"><span class="lab">Thought behind it</span><div class="why">Midweek lunch slot hits homeowners scrolling on break. Fear of getting burned is the #1 homeowner objection, so the trust pillar goes first on the business page, where homeowner traffic lands from the website.</div></div>
+        <div class="sect"><span class="lab">CTA + Hashtags</span><div class="why">Comment VET → ManyChat DM: absolutebuilt.com/homeowners + project intake.</div><div class="tags">#HomeRemodel #UtahHomes #BasementFinish #KitchenRemodel #HomeRenovation #SaltLakeCity</div></div>
+      </div>
+    </div>
+    <div class="prod"><b>Production:</b> Yash's Oct 27 final is the posting file. <b>Note:</b> next homeowner slot (Nov 11) uses 14 "What It Actually Costs" to follow trust with transparency.</div>
+  </div>
+</section>
+
+<!-- SLIDE 6 · THU -->
+<section class="slide post" id="s6">
+  <div class="mock"><div class="phone"><div class="scr"><div class="ttl" style="font-size:26px">YOU BUILD, I HANDLE <em>THE REST</em></div><img class="mk" src="mark.png" style="height:64px"><div class="ft">Script 05 · Contractor</div></div></div>
+    <a class="btn" href="https://drive.google.com/file/d/1HtWFi4115mUujlPjRuaZDjFeyjY5uuAY/view" target="_blank">Watch the reel ↗</a></div>
+  <div class="body">
+    <div class="dayline"><h2>THURSDAY <span>NOV 5</span></h2></div>
+    <div class="pills"><span class="pill">Contractor / Offer</span><span class="chip ready"><i></i>Ready · Yash final</span><span class="meta">Reel · 7:00 AM MT · @kaydencarlos</span></div>
+    <h1>YOU BUILD, I HANDLE THE REST</h1>
+    <div class="sect"><span class="lab">Hook</span><div class="hook">You didn't get into this trade to answer emails and chase down payments.</div></div>
+    <div class="cols">
+      <div class="sect"><span class="lab">Caption</span>
+        <div class="cap">You got into it to build.
+
+So let me handle the part you hate: the sales, the marketing, the customer communication, the follow-up.
+
+You focus on the craft. That's the partnership.
+
+Ready to just build again? Comment BUILD. 🔨</div></div>
+      <div>
+        <div class="sect"><span class="lab">Thought behind it</span><div class="why">Tuesday named the pain, Thursday makes the offer. Same audience, same slot, 48 hours apart: the algorithm re-serves it to Tuesday's engagers right when the message lands hardest.</div></div>
+        <div class="sect"><span class="lab">CTA + Hashtags</span><div class="why">Comment BUILD → ManyChat DM: partner application.</div><div class="tags">#ContractorLife #ConstructionBusiness #BuilderCommunity #UtahConstruction #GrowthPartner</div></div>
+      </div>
+    </div>
+    <div class="prod"><b>Production:</b> Yash's Oct 26 final (with outro) is the posting file. <b>Engagement:</b> pin top comment from @absolutebuilt: "Better projects. Stronger together. 🔺"</div>
+  </div>
+</section>
+
+<!-- SLIDE 7 · FRI -->
+<section class="slide post" id="s7">
+  <div class="mock"><div class="phone"><div class="scr"><div class="ttl" style="font-size:26px">THE ONE-STOP-SHOP <em>APP</em></div><img class="mk" src="mark.png" style="height:64px"><div class="ft">Script 17 · App Vision</div></div></div>
+    <a class="btn" href="https://drive.google.com/file/d/1nVxGdOvNZNvaohYR3J3mmxSIXbiP39Df/view" target="_blank">Watch the reel ↗</a></div>
+  <div class="body">
+    <div class="dayline"><h2>FRIDAY <span>NOV 6</span></h2></div>
+    <div class="pills"><span class="pill">App / Vision</span><span class="chip ready"><i></i>Ready · Yash final</span><span class="meta">Reel · 11:00 AM MT · @absolutebuilt</span></div>
+    <h1>THE ONE-STOP SHOP</h1>
+    <div class="sect"><span class="lab">Hook</span><div class="hook">I'm building something that's going to change how people remodel their homes. Completely.</div></div>
+    <div class="cols">
+      <div class="sect"><span class="lab">Caption</span>
+        <div class="cap">One place where homeowners find vetted contractors, buy their materials, see real before-and-afters, and start their project.
+
+No more juggling ten companies and hoping for the best.
+
+One platform. From the first idea to the finished room.
+
+Want early access when it's live? Comment APP and you're on the list. 📲</div></div>
+      <div>
+        <div class="sect"><span class="lab">Thought behind it</span><div class="why">Friday into the weekend is browse time: the vision piece performs when people have time to dream. It also starts the early-access list, the week's only forward-looking asset, so next week's posts have a waitlist to point at.</div></div>
+        <div class="sect"><span class="lab">CTA + Hashtags</span><div class="why">Comment APP → ManyChat DM: early-access list capture (name + email).</div><div class="tags">#ConstructionTech #HomeRemodel #PropTech #UtahBusiness #OneStopShop #AbsoluteBuilt</div></div>
+      </div>
+    </div>
+    <div class="prod"><b>Production:</b> Yash's Oct 27 final is the posting file. <b>Weekend:</b> Kayden stories a "which project would you start first" poll Saturday to keep the APP keyword warm.</div>
+  </div>
+</section>
+
+<!-- SLIDE 8 · BENCH -->
+<section class="slide glance" id="s8">
+  <div style="max-width:1100px;margin:30px auto 0">
+  <h2>THE BENCH + WHAT'S NEXT</h2>
+  <p class="intro">Edited and held for Week 2: 04 The Clean Handoff, 07 Aligned Not Another Bill, 14 What It Actually Costs. That's a full contractor + homeowner rotation already cut by Yash, so next week schedules itself. Still in the bank unedited: 19 scripts plus the Manifesto takes and testimonial footage from Billie and Adrian.</p>
+  <div class="cards" style="grid-template-columns:repeat(3,1fr);max-width:760px">
+    <div class="pcard"><div class="thumb"><div class="t">The Clean Handoff</div><img class="mk2" src="mark.png"><div class="n">W2</div></div><div class="day">Week 2 · Contractor</div><div class="chip ready"><i></i>Edited</div></div>
+    <div class="pcard"><div class="thumb"><div class="t">Aligned, Not Another Bill</div><img class="mk2" src="mark.png"><div class="n">W2</div></div><div class="day">Week 2 · Contractor</div><div class="chip ready"><i></i>Edited</div></div>
+    <div class="pcard"><div class="thumb"><div class="t">What It Actually Costs</div><img class="mk2" src="mark.png"><div class="n">W2</div></div><div class="day">Week 2 · Homeowner</div><div class="chip ready"><i></i>Edited</div></div>
+  </div>
+  <p class="intro" style="margin-top:26px">Rules of the week: one keyword per post (BUILD, HATS, VET, APP), Kayden replies inside the first hour, every reel carries the outro and ends pointing at the same place: start a conversation.</p>
+  </div>
+</section>
+
+</div>
+
+<div class="footer">
+  <span class="tag">CREATE IN <b>FLOW</b> STATE.</span>
+  <div class="pager">
+    <span>PUROFLOW MEDIA × ABSOLUTE BUILT</span>
+    <div class="dots" id="dots"></div>
+    <span id="count">01 / 08</span>
+    <button class="navbtn" onclick="go(-1)">‹</button>
+    <button class="navbtn" onclick="go(1)">›</button>
+  </div>
+</div>
+
+<script>
+const deck=document.getElementById('deck');
+const N=document.querySelectorAll('.slide').length;
+const dots=document.getElementById('dots');
+for(let i=0;i<N;i++){const d=document.createElement('div');d.className='dot'+(i===0?' on':'');dots.appendChild(d);}
+function cur(){return Math.round(deck.scrollLeft/window.innerWidth);}
+function go(d){deck.scrollTo({left:(cur()+d)*window.innerWidth,behavior:'smooth'});}
+function upd(){const c=cur();document.getElementById('count').textContent=String(c+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');[...dots.children].forEach((x,i)=>x.classList.toggle('on',i===c));}
+deck.addEventListener('scroll',()=>requestAnimationFrame(upd));
+window.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1);});
+</script>
+</body>
+</html>
